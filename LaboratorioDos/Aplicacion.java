@@ -23,6 +23,7 @@ public class Aplicacion{
 	private static int  nodosB;
 	private static int  nodosC;
 	private static int  nodosD;
+	private static Controlador controlador = new Controlador();
 
 	public static void main(String argv[]){
 		menu();
@@ -83,8 +84,8 @@ public class Aplicacion{
 	}
 
 	private static void generaSuma(){
-		Nodo cabezaA = this.cabezaA;
-		Nodo cabezaB = this.cabezaB;
+		Nodo auxiliarA = cabezaA;
+		Nodo auxiliarB = cabezaB;
 	}
 
 	private static void generaMultiplicacion(){
