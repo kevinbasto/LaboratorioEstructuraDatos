@@ -23,7 +23,6 @@ public class Aplicacion{
 	private static int  nodosB;
 	private static int  nodosC;
 	private static int  nodosD;
-	private static Controlador controlador = new Controlador();
 
 	public static void main(String argv[]){
 		menu();
@@ -50,24 +49,24 @@ public class Aplicacion{
 
 			switch(selector){
 				case 1:
-
+					agregaNodo();
 					break;
 				case 2:
-
+					agregaNodo();
 					break;
 				case 3:
-
+					imprimeNodo();
 					break;
 				case 4:
-
+					imprimeNodo();
 					break;
 				case 5:
-
+					generaSuma();
 					break;
 				case 6:
-
+					generaMultiplicacion();
 					break;
-				case 0:
+				default:
 
 					break;
 			}
@@ -75,8 +74,8 @@ public class Aplicacion{
 		}while(selector != 0);
 	}
 
-	private static void agregaNodo(){
-
+	private static void agregaNodo(Scanner scanner){
+		int exponente;
 	}
 
 	private static void imprimeNodo(){
