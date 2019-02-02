@@ -4,5 +4,10 @@
 */
 
 public class Procesador{
-	
+	private static Nodo cabeza;
+
+
+	public static void main(){
+		a
+	}
 }
