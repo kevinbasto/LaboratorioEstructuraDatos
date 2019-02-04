@@ -3,17 +3,20 @@
 public class Nodo{
 	
 	private char caracter;
-	private Nodo anterior;
-
+	private Nodo siguiente;
 
 	/*
-	* setters y getters del nodo
+	* Constructor del objeto nodo
 	*----------------------------------------------------------
 	*/
 	public Nodo(char caracter){
-		this.caracter=caracter;
+		this.caracter = caracter;
 	}
 
+	/*
+	* setters y getters del caracter
+	*----------------------------------------------------------
+	*/
 	public void setCaracter(char caracter){
 		this.caracter = caracter;
 	}
@@ -22,12 +25,15 @@ public class Nodo{
 		return this.caracter;
 	}
 
-
-	public void setAnterior(Nodo nodo){
-		this.anterior = nodo;
+	/*
+	*setters y getter del nodo siguiente
+	*----------------------------------------------------------
+	*/
+	public void getSiguiente(Nodo siguiente){
+		this.siguiente = siguiente;
 	}
 
-	public Nodo getAnterior(){
-		return this.anterior;
+	public Nodo getSiguiente(){
+		return this.siguiente;
 	}
 }
