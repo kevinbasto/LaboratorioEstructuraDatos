@@ -10,6 +10,7 @@ public class Procesador{
 	//atributos de la clase main
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	private static Nodo tope = new Nodo('\n');
+	private static Nodo topePost;
 
 	/*
 	*  método main
@@ -83,6 +84,38 @@ public class Procesador{
 	}
 
 	/*
+	* Método crear postfijo
+	*----------------------------------------------------------
+	*este método crea la pila para crear la cadena postfija
+	*/
+	private static void crearPostfijo(){
+		
+	}
+
+	/*
+	* método que verifica la existencia de la pila
+	*----------------------------------------------------------
+	*/
+	private static boolean verificaPila(){
+		if(tope.isEmpty()){
+			return true;
+		}
+
+		return false;
+	}
+
+	/*
+	*metodo limpiarPila
+	*----------------------------------------------------------
+	*este método limpia la pila
+	*/
+	private static void limpiarPila(){
+		topePost = null;
+		tope = null;
+	}
+
+
+	/*
 	*método utilizado para crear la pila de caracteres
 	*----------------------------------------------------------
 	*este método es utilizado para la creación de una pila de
@@ -104,12 +137,24 @@ public class Procesador{
 
 	}
 
+
+	/*
+	* metodo clearscreen
+	*----------------------------------------------------------
+	*este método busca hacer ver la pantalla lo más limpio posible
+	*
+	*/
 	private static void clearScreen(){
 		for(int i=0; i<30; i++){
 			System.out.println("\n");
 		}
 	}
 
+	/*
+	* metodo imprimirPila
+	*----------------------------------------------------------
+	*este método sirve para imprimir la pila
+	*/
 	private static void imprimirPila(){
 		Nodo auxiliar = tope;
 		while(auxiliar.getSiguiente() != null){
