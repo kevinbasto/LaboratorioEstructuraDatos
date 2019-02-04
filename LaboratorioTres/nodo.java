@@ -29,7 +29,7 @@ public class Nodo{
 	*setters y getter del nodo siguiente
 	*----------------------------------------------------------
 	*/
-	public void getSiguiente(Nodo siguiente){
+	public void setSiguiente(Nodo siguiente){
 		this.siguiente = siguiente;
 	}
 
