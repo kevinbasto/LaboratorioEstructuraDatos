@@ -1,0 +1,28 @@
+Infix to Postfix pseudocode
+
+for(each character ch in the infix expression){
+	switch(ch){
+		case '(': 		//save '(' on stack
+			aStack.push(ch)
+			break
+		case ')':		//´p´stack until matching '('
+			while(top of the stack is not '(' ){
+				postfixExpression ? postfixExp + (top of aStack)
+				aStack.pop()
+			}//end of while
+			aStack.pop()		// remove the '('
+			break
+		case operator: 		// process stack operators of
+							//greater precedence
+			while(!aStack.isEmpty() and top of stack is not '(' and precendence (ch) <= precedence (top of stack)){
+				postfixExpresion = postfixExpresion + (top of aStack)
+				aStack.pop
+			}			//end While
+	}		//end switch
+}//end for
+
+//append top postfixExpresion the operators remaining on the stack
+while(!aStack.isEmpty()){
+	postfixExpresion = postfixExpresion + (top of a Stack)
+	aStack.pop
+}//endwhile
