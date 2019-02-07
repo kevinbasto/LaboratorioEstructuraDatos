@@ -10,7 +10,6 @@ public class Procesador{
 	//atributos de la clase main
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	private static Nodo tope = new Nodo('\n');
-	private static Nodo topePost;
 
 	/*
 	*  método main
@@ -84,38 +83,6 @@ public class Procesador{
 	}
 
 	/*
-	* Método crear postfijo
-	*----------------------------------------------------------
-	*este método crea la pila para crear la cadena postfija
-	*/
-	private static void crearPostfijo(){
-		
-	}
-
-	/*
-	* método que verifica la existencia de la pila
-	*----------------------------------------------------------
-	*/
-	private static boolean verificaPila(){
-		if(tope.isEmpty()){
-			return true;
-		}
-
-		return false;
-	}
-
-	/*
-	*metodo limpiarPila
-	*----------------------------------------------------------
-	*este método limpia la pila
-	*/
-	private static void limpiarPila(){
-		topePost = null;
-		tope = null;
-	}
-
-
-	/*
 	*método utilizado para crear la pila de caracteres
 	*----------------------------------------------------------
 	*este método es utilizado para la creación de una pila de
@@ -137,24 +104,12 @@ public class Procesador{
 
 	}
 
-
-	/*
-	* metodo clearscreen
-	*----------------------------------------------------------
-	*este método busca hacer ver la pantalla lo más limpio posible
-	*
-	*/
 	private static void clearScreen(){
 		for(int i=0; i<30; i++){
 			System.out.println("\n");
 		}
 	}
 
-	/*
-	* metodo imprimirPila
-	*----------------------------------------------------------
-	*este método sirve para imprimir la pila
-	*/
 	private static void imprimirPila(){
 		Nodo auxiliar = tope;
 		while(auxiliar.getSiguiente() != null){
@@ -162,4 +117,50 @@ public class Procesador{
 		}
 	}
 
+	private static void infiToPrefi(){
+		Nodo temp = tope;
+		char ch = '' ;
+		int i, contador = 0;
+		do {
+			temp = temp.getSiguiente ();
+			contador += 1;
+		} while (temp != NULL);
+		temp = tope.getSiguiente ();
+				for (i = 0;i <= contador;i++){
+							ch = temp.getCaracter ();
+							switch(ch){
+							case operand: // append operand to end of PE
+											postfixExp = postfixExp + ch;
+											break;
+							case ’(’: // save ’(’ on stack
+											aStack.push(ch);
+											break;
+							case ’)’: // pop stack until matching ’(’
+											while (top of stack is not != ’(’){
+															postfixExp = postfixExp + (top of aStack);
+															aStack.pop();
+											} // end while
+											aStack.pop(); // remove the ’(’
+											break;
+							case operator: // process stack operators of
+											// greater precedence
+											while (!aStack.isEmpty() &&top of stack is not ’(’ &&precedence(ch) <= precedence(top of aStack)){
+															postfixExp = postfixExp + (top of aStack);
+															aStack.pop();
+											} // end while
+											aStack.push(ch) ;// save new operator
+											break;
+							} // end switch
+							temp = temp.getSiguiente ();
+			} // end for
+			// append to postfixExp the operators remaining on the stack
+			while(!aStack.isEmpty()){
+							postfixExp = postfixExp + (top of aStack);
+							aStack.pop();
+				} // end while
+
+
+			}
+		}
+	}
 }
