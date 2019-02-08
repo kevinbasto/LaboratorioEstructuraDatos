@@ -89,7 +89,9 @@ public class Procesador{
 	*este método crea la pila para crear la cadena postfija
 	*/
 	private static void crearPostfijo(){
-		
+		while(!tope.getSiguiente().isEmpty()){
+
+		}
 	}
 
 	/*
