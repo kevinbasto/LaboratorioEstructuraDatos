@@ -1,0 +1,26 @@
+Práctica
+• La	sociedad de	alumnos organiza un	concurso en el	que	los participantes se	podrán ganar K
+premios.	En cada ronda participan N equipos y	se	concursa por el	i-ésimo premio,	donde i=1,…,	K.
+• Cada equipo tiene un	nombre (alfanumérico)	que	lo	identificar´¯.	
+• En cada ronda,	el	i-ésimo premio tiene un	precio escondido (valor	de	1	a	1000)	que	no	es conocido
+porlos participantes.
+• Cada equipo asigna un	valor	estimado del	precio del	i-ésimo premio (valor	entre	1	a	1000)	y	se	captura
+también el	tiempo (en milisegundos)	en que	fue asignado el	valor.	
+• Hacer un	programa que,	en cada ronda,	ordene los equipos de	acuerdo a	su cercanía con	
+el	valor	obtenido.	
+• Ganará aquel equipo que	más se	acerque al	precio del	i-ésimo premio.
+• En caso de	empate,	se	considerará también el	tiempo de	respuesta del	equipo.
+• En caso de	empate,	se	desempatará considerando el	nombre del	equipo
+• Hacer un	programa que	simule el	concurso descrito en los párrafos anteriores
+
+Entregable
+• Se	realizará un	pseudocódigo de	la	función de	ordenamiento
+• Indicar la	entrada	y	salida del	pseudocódigo
+• Se	implementará el	pseudocódigo.	
+• Debe correr con	comandos simples	de	la	línea de	comandos (javac,	java,	gcc),	
+no	utilizar netbeans
+• Generar un	reporte,	en el	cual se	incluirá el	pseudocódigo y	una
+descripción de	como se	implementó y	pantallazos de	las	entradas	y	
+salidas del	programa.	Incluir una sección de	conclusiones.
+• Entrega martes 19	de	febrero antes	de	clase.	
+• Expondrán dos	equipos la	solución del	programa
