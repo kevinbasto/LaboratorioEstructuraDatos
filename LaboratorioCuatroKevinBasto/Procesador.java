@@ -79,7 +79,11 @@ public class Procesador{
 		System.out.println("introduzca la cantidad de equipos: ");
 		cantidad = scanner.nextInt();
 
+
 		for(int i = 0; i<cantidad; i++){
+
+			scanner.nextLine();
+
 			System.out.println("\n\n\nintroduzca el nombre del Equipo: ");
 			auxiliar.setNombre(scanner.nextLine());
 
