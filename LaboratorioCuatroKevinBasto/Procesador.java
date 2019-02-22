@@ -136,7 +136,9 @@ public class Procesador{
 
 
 	/*
-	*
+	* método imprime arreglo
+	*----------------------------------------------------------
+	* éste método imprime el arreglo del programa
 	*
 	*/
 	private static void imprimeArreglo(){
@@ -147,4 +149,4 @@ public class Procesador{
 
 	}	//fin del método imprimeArreglo
 
-}
+}//fin de la clase Procesador.java
