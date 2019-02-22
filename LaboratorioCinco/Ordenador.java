@@ -7,10 +7,15 @@
 *
 */
 
+import java.util.Scanner;
+
 public class Ordenador{
 	
 	//atributos de la clase
-	private static float[] vector;
+	private static float[]  vector;
+	private static int[]	pasos;
+	private static int[][]  tablaRes = new int[10][4];
+	private static Scanner scanner = new Scanner(System.in);
 
 	/*
 	*	Método: main
@@ -19,7 +24,7 @@ public class Ordenador{
 	*/
 	public static void main(){
 		menu();
-	}
+	}	//fin del main
 
 
 	/*
@@ -31,13 +36,37 @@ public class Ordenador{
 	public static void menu(){
 
 		int selector;
-		boolean salir;
+		boolean salir = false;
 
 		do{
 			imprimeOpciones();
+			System.out.println("seleccione una opcion: ");
+			selector = scanner.nextInt();
 
-		}while(salir == false);
-	}
+			switch(selector){
+				case 1:
+
+					break;
+				case 2:
+
+					break;
+				case 3:
+
+					break;
+				case 4:
+
+					break;
+				case 5:
+
+					break;
+				case 6:
+
+					break;
+			}
+
+		}while(salir == false); //fin del ciclo do while
+
+	}//fin del ciclo salir
 
 	/*
 	*	Método: imprimeOpciones
@@ -53,8 +82,13 @@ public class Ordenador{
 		System.out.println("3.-ordenar por selection sort 				\n");
 		System.out.println("4.-ordenar por inserction sort 				\n");
 		System.out.println("5.-ordenar por inserction Sort 				\n");
+		System.out.println("6.-salir del programa						\n");
+		System.out.println("--------------------------------------------\n");
 
-	}
+	} //fin de imprimeOpciones
+
+
+
 
 
 }
