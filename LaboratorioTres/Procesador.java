@@ -83,6 +83,43 @@ public class Procesador{
 	}
 
 	/*
+<<<<<<< master
+	* Método crear postfijo
+	*----------------------------------------------------------
+	*este método crea la pila para crear la cadena postfija
+	*/
+	private static void crearPostfijo(){
+		while(!tope.getSiguiente().isEmpty()){
+
+		}
+	}
+
+	/*
+	* método que verifica la existencia de la pila
+	*----------------------------------------------------------
+	*/
+	private static boolean verificaPila(){
+		if(tope.isEmpty()){
+			return true;
+		}
+
+		return false;
+	}
+
+	/*
+	*metodo limpiarPila
+	*----------------------------------------------------------
+	*este método limpia la pila
+	*/
+	private static void limpiarPila(){
+		topePost = null;
+		tope = null;
+	}
+
+
+	/*
+=======
+>>>>>>> master
 	*método utilizado para crear la pila de caracteres
 	*----------------------------------------------------------
 	*este método es utilizado para la creación de una pila de
@@ -130,33 +167,44 @@ public class Procesador{
 							ch = temp.getCaracter ();
 							switch(ch){
 							case operand: // append operand to end of PE
-											postfixExp = postfixExp + ch;
-											break;
+											postfixExp = postfixExp + ch
+;
+											break
+;
 							case ’(’: // save ’(’ on stack
 											aStack.push(ch);
-											break;
+											break
+;
 							case ’)’: // pop stack until matching ’(’
 											while (top of stack is not != ’(’){
 															postfixExp = postfixExp + (top of aStack);
 															aStack.pop();
 											} // end while
 											aStack.pop(); // remove the ’(’
-											break;
+											break
+;
 							case operator: // process stack operators of
 											// greater precedence
-											while (!aStack.isEmpty() &&top of stack is not ’(’ &&precedence(ch) <= precedence(top of aStack)){
-															postfixExp = postfixExp + (top of aStack);
-															aStack.pop();
+											while (!aStack.isEmpty() &&
+top of stack is not ’(’ &&
+precedence(ch) <= precedence(top of aStack)){
+															postfixExp = postfixExp + (top of aStack)
+;
+															aStack.pop()
+;
 											} // end while
 											aStack.push(ch) ;// save new operator
-											break;
+											break
+;
 							} // end switch
 							temp = temp.getSiguiente ();
 			} // end for
 			// append to postfixExp the operators remaining on the stack
 			while(!aStack.isEmpty()){
-							postfixExp = postfixExp + (top of aStack);
-							aStack.pop();
+							postfixExp = postfixExp + (top of aStack)
+;
+							aStack.pop()
+;
 				} // end while
 
 

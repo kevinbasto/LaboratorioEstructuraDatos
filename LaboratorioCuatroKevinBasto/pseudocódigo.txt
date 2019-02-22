@@ -1,0 +1,20 @@
+Algoritmo Selection sort{
+	1.- entero i,j;		//tienen función como iteradores
+	2.- entero mínimo;  //tiene la  función de almacenar el valor más pequeño
+	
+	3.-para(i=0; i<n; i++){
+		3.1.- mínimo = i;
+		
+		3.2.- para(j = i+1; j<n; j++){
+			3.2.1.-si(s[j] < s[mínimo]){
+				3.2.1.1.-mínimo = j;
+			
+			}//fin del si
+		
+		}//fin del ciclo for j
+
+		3.3 invertir(s[i],s[min]);
+
+	}	//fin del ciclo i
+
+} //fin del algoritmo
