@@ -45,7 +45,7 @@ public class Ordenador{
 
 			switch(selector){
 				case 1:
-
+					crearVector();
 					break;
 				case 2:
 
@@ -88,7 +88,11 @@ public class Ordenador{
 	} //fin de imprimeOpciones
 
 
-
+	/**/
+	private static void crearVector(){
+		int longitud;
+		
+	}
 
 
 }

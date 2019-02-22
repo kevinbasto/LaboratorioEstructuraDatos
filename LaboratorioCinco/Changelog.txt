@@ -5,3 +5,7 @@ Changelog del proyecto creado
 22/02/2019, 8:15
 autor: Kevin Basto
 clase ordenador implementada
+
+22/02/2019, 8:42
+autor: Kevin Basto
+implementación de la tabla que almacenará todos los datos del programa
