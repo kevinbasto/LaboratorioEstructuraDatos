@@ -88,10 +88,31 @@ public class Ordenador{
 	} //fin de imprimeOpciones
 
 
-	/**/
+	/*
+	* Método: crearVector
+	*----------------------------------------------------------
+	* éste método crea el vector principal de trabajo
+	*/
 	private static void crearVector(){
 		int longitud;
-		
+		int menor;
+		int mayor;
+
+		System.out.println("\nIntroduzca la longitud del vector: ");
+		longitud = scanner.nextInt();
+		System.out.println("\n\nIntroduzca el valor menor para la generación aleatoria: ");
+		menor = scanner.nextInt();
+		System.out.println("\n\nIntroduzca el valor mayor para la generación aleatorio: ");
+		mayor = scanner.nextInt();
+
+		vector = new float[longitud];
+
+		generadorRand(menor, mayor);
+
+	}//fin crearVector
+
+	private static void generadorRand(int menor, int mayor){
+
 	}
 
 
