@@ -25,7 +25,7 @@ public class Ordenador{
 	*----------------------------------------------------------
 	* No tiene mayor función el método main que iniciar al menu
 	*/
-	public static void main(){
+	public static void main(String[] args){
 		menu();
 	}	//fin del main
 
