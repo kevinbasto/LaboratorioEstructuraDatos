@@ -14,9 +14,11 @@ public class Ordenador{
 
 	//atributos de la clase
 	private static int[]  vector;
+	private static int tamano;
 	private static int[]	pasos;
 	private static int[][]  tablaRes = new int[10][4];
 	private static Scanner scanner = new Scanner(System.in);
+	private static Algoritmo algoritmo = new Algoritmo();
 
 	/*
 	*	Método: main
@@ -63,6 +65,9 @@ public class Ordenador{
 				case 6:
 
 					break;
+				case 7:
+					imprimeArreglo();
+					break;
 			}
 
 		}while(salir == false); //fin del ciclo do while
@@ -84,6 +89,7 @@ public class Ordenador{
 		System.out.println("4.-ordenar por inserction sort 				\n");
 		System.out.println("5.-ordenar por inserction Sort 				\n");
 		System.out.println("6.-salir del programa						\n");
+		System.out.println("7.-imprimir el arreglo de enteros 		\n");
 		System.out.println("--------------------------------------------\n");
 
 	} //fin de imprimeOpciones
@@ -96,21 +102,16 @@ public class Ordenador{
 	*/
 	private static void crearVector(){
 		int longitud;
-		int menor;
-		int mayor;
 
 		System.out.println("\nIntroduzca la longitud del vector: ");
 		longitud = scanner.nextInt();
-		System.out.println("\n\nIntroduzca el valor menor para la generación aleatoria: ");
-		menor = scanner.nextInt();
-		System.out.println("\n\nIntroduzca el valor mayor para la generación aleatorio: ");
-		mayor = scanner.nextInt();
 
 		vector = new int[longitud];
 
 		for(int i=0; i<longitud; i++)
-			vector[i] = generadorRand(menor, mayor);
+			vector[i] = generadorRand();
 
+		tamano = longitud;
 
 	}//fin crearVector
 
@@ -135,7 +136,7 @@ public class Ordenador{
 	* ésta funcion tiene el objetivo de crear valores al azar y asignarselos al
 	* vector de trabajo
 	*/
-	private static int generadorRand(int menor, int mayor){
+	private static int generadorRand(){
 		int valor;
 		Random aleatorio = new Random(System.currentTimeMillis());
 
@@ -144,5 +145,21 @@ public class Ordenador{
 		return valor;
 	} //fin generadorRand
 
+	/*
+	*	Método: imprimeArreglo
+	*-----------------------------------------------------------------------------
+	* éste método imprime el arreglo sea en el orden que esté
+	*/
+	private static void imprimeArreglo(){
 
+			if(tamano == 0){
+				System.out.println("\nNo se puede imprimir una cadena de long 0");
+				return;
+			}
+
+			for(int i=0; i<tamano; i++)
+				System.out.println("\n"+vector[i]);
+
+
+	}
 }
