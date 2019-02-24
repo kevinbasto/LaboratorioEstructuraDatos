@@ -109,7 +109,8 @@ public class Ordenador{
 		vector = new int[longitud];
 
 		for(int i=0; i<longitud; i++)
-			vector[i] = generadorRand(menor, mayor);		
+			vector[i] = generadorRand(menor, mayor);
+
 
 	}//fin crearVector
 
