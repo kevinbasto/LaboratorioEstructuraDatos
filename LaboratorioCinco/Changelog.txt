@@ -9,3 +9,8 @@ clase ordenador implementada
 22/02/2019, 8:42
 autor: Kevin Basto
 implementación de la tabla que almacenará todos los datos del programa
+
+22/02/2019, 8:52
+autor: kevin Basto
+se implementa la funcion swap para los algoritmos de ordenamiento, tambien se
+termina de codificar la funcion agregarVector
