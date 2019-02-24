@@ -8,11 +8,12 @@
 */
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Ordenador{
-	
+
 	//atributos de la clase
-	private static float[]  vector;
+	private static int[]  vector;
 	private static int[]	pasos;
 	private static int[][]  tablaRes = new int[10][4];
 	private static Scanner scanner = new Scanner(System.in);
@@ -105,15 +106,42 @@ public class Ordenador{
 		System.out.println("\n\nIntroduzca el valor mayor para la generación aleatorio: ");
 		mayor = scanner.nextInt();
 
-		vector = new float[longitud];
+		vector = new int[longitud];
 
-		generadorRand(menor, mayor);
+		for(int i=0; i<longitud; i++)
+			vector[i] = generadorRand(menor, mayor);		
 
 	}//fin crearVector
 
-	private static void generadorRand(int menor, int mayor){
 
-	}
+	/*
+	* Método: swap
+	*-----------------------------------------------------------------------------
+	* esta funcion tiene el objetivo de intercambiar valores entre sí
+	*/
+	private static void swap(int indiceActual, int indiceSiguiente){
+		int auxiliar;
+
+		auxiliar = vector[indiceActual];
+		vector[indiceActual] = vector[indiceSiguiente];
+		vector[indiceSiguiente] = auxiliar;
+
+	}		//fin swap
+
+	/*
+	* Método: generadorRand
+	*-----------------------------------------------------------------------------
+	* ésta funcion tiene el objetivo de crear valores al azar y asignarselos al
+	* vector de trabajo
+	*/
+	private static int generadorRand(int menor, int mayor){
+		int valor;
+		Random aleatorio = new Random(System.currentTimeMillis());
+
+		valor = aleatorio.nextInt(400);
+
+		return valor;
+	} //fin generadorRand
 
 
 }
