@@ -17,6 +17,8 @@ public class Ordenador{
 	private static int tamano;
 	private static int[]	pasos;
 	private static int[][]  tablaRes = new int[10][4];
+
+	//atributos generales de la Clase
 	private static Scanner scanner = new Scanner(System.in);
 	private static Algoritmo algoritmo = new Algoritmo();
 
@@ -73,6 +75,7 @@ public class Ordenador{
 		}while(salir == false); //fin del ciclo do while
 
 	}//fin del ciclo salir
+
 
 	/*
 	*	Método: imprimeOpciones
