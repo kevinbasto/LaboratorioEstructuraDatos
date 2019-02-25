@@ -14,3 +14,10 @@ implementación de la tabla que almacenará todos los datos del programa
 autor: kevin Basto
 se implementa la funcion swap para los algoritmos de ordenamiento, tambien se
 termina de codificar la funcion agregarVector
+
+24/02/2019, 23:35
+autor: Kevin Basto
+se reescribio la clase ordenador, se desechó la clase Algoritmo y queda
+pendiente la implementacion del método random, además de que falta implementar
+los métodos selectionsort, Quicksort, InserctionSort, se necesita implementar
+de igual manera la tabla comparativa de cada uno de los experimentos

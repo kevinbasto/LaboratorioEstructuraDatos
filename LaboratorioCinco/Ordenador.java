@@ -73,6 +73,7 @@ public class Ordenador{
 		System.out.println("1.-Generar el vector de enteros										 \n");
 		System.out.println("2.-imprimir el vector arreglado										 \n");
 		System.out.println("3.-Ordenar por bubble sort												 \n");
+		System.out.println("4.-Ordenar por selection sort											 \n");
 		System.out.println("4.-salir																					 \n");
 		System.out.println("---------------------------------------------------\n");
 		System.out.println("seleccione una opcion: ");
@@ -116,6 +117,8 @@ public class Ordenador{
 	//metodo para ordenar por bubbleSort
 	public static void bubbleSort(){
 
+		fixedVector = vector;
+
 		for(int i=0; i<longitud-1; i++){
 			for(int j=0; j<longitud-i-1; j++){
 				if(fixedVector[j] > fixedVector[j+1]){
@@ -126,6 +129,12 @@ public class Ordenador{
 		}
 
 		System.out.println("\n\nla cantidad de pasos utilizados fueron: "+pasos[0]);
+	}
+
+	//metodo para ordenar por selectionSort
+	public static void selectionSort(){
+		fixedVector = vector;
+
 	}
 
 	//sección de métodos secundarios de la Clase
