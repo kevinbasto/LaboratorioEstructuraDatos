@@ -23,6 +23,11 @@ public class Ordenador{
 
 	//metodo main
 	public static void main(String[] args){
+
+		//configuraciones iniciales del programa
+		for(int i=0; i<4; i++)
+			pasos[i] = 0;
+
 		menu();
 	}
 
@@ -49,6 +54,12 @@ public class Ordenador{
 					break;
 				case 2:
 					impresor();
+					break;
+				case 3:
+					bubbleSort();
+					break;
+				case 4:
+					salir = true;
 					break;
 			}
 
@@ -85,8 +96,9 @@ public class Ordenador{
 		vector = new int[longitud];
 
 		//ciclo de asignación para generar las pruebas
-		for(int i=0; i<longitud; i++)
+		for(int i=0; i<longitud; i++){
 			vector[i] = longitud-i;
+		}
 
 		fixedVector = vector;
 
@@ -99,6 +111,21 @@ public class Ordenador{
 	public static void impresor(){
 		for(int i=0; i<longitud; i++)
 			System.out.println("\n"+fixedVector[i]);
+	}
+
+	//metodo para ordenar por bubbleSort
+	public static void bubbleSort(){
+
+		for(int i=0; i<longitud-1; i++){
+			for(int j=0; j<longitud-i-1; j++){
+				if(fixedVector[j] > fixedVector[j+1]){
+					swap(j,j+1);
+					pasos[0]++;
+				}
+			}
+		}
+
+		System.out.println("\n\nla cantidad de pasos utilizados fueron: "+pasos[0]);
 	}
 
 	//sección de métodos secundarios de la Clase
