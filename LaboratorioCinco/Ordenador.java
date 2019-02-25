@@ -12,157 +12,115 @@ import java.util.Random;
 
 public class Ordenador{
 
-	//atributos de la clase
-	private static int[]  vector;
-	private static int tamano;
-	private static int[]	pasos;
-	private static int[][]  tablaRes = new int[10][4];
+	//atributos utilizados de la Clase
+	private static int[] vector;
+	private static int[] fixedVector;
+	private static int longitud;
+	private static int[] pasos = new int[4];
 
-	//atributos generales de la Clase
+	//objetos utilizados dentro de la Clase
 	private static Scanner scanner = new Scanner(System.in);
-	private static Algoritmo algoritmo = new Algoritmo();
 
-	/*
-	*	Método: main
-	*----------------------------------------------------------
-	* No tiene mayor función el método main que iniciar al menu
-	*/
+	//metodo main
 	public static void main(String[] args){
 		menu();
-	}	//fin del main
+	}
 
+	//seccion de métodos del menu
+	//----------------------------------------------------------------------------
 
-	/*
-	*	Método: menu
-	*----------------------------------------------------------
-	* Éste método tiene la función de servir de menu para la
-	* selección de las múltiples opciones del programa
-	*/
-	public static void menu(){
-
+	//metodo menu
+	private static void menu(){
 		int selector;
 		boolean salir = false;
 
 		do{
-			imprimeOpciones();
-			System.out.println("seleccione una opcion: ");
+
+			//limpio el buffer del scanner para evitar el crasheo
+			scanner.nextLine();
+
+			//opciones imprime el menu en resumidas cuentas
+			opciones();
 			selector = scanner.nextInt();
 
 			switch(selector){
 				case 1:
-					crearVector();
+					generaVector();
 					break;
 				case 2:
-
-					break;
-				case 3:
-
-					break;
-				case 4:
-
-					break;
-				case 5:
-
-					break;
-				case 6:
-
-					break;
-				case 7:
-					imprimeArreglo();
+					impresor();
 					break;
 			}
 
-		}while(salir == false); //fin del ciclo do while
+		}while(salir == false);
+	}
 
-	}//fin del ciclo salir
+	//metodo opciones
+	private static void opciones(){
+		System.out.println("			Menu selector										 						 \n");
+		System.out.println("---------------------------------------------------\n");
+		System.out.println("1.-Generar el vector de enteros										 \n");
+		System.out.println("2.-imprimir el vector arreglado										 \n");
+		System.out.println("3.-Ordenar por bubble sort												 \n");
+		System.out.println("4.-salir																					 \n");
+		System.out.println("---------------------------------------------------\n");
+		System.out.println("seleccione una opcion: ");
+	}
 
+	// seccion de métodos relacionados con el menu
+	//----------------------------------------------------------------------------
 
-	/*
-	*	Método: imprimeOpciones
-	*----------------------------------------------------------
-	* Tiene la función de imprimir las opciones del sistema
-	* hecho así para aumentar la legibilidad del método menu
-	*/
-	private static void imprimeOpciones(){
-		System.out.println("	Sistema de ordenamiento del vector		\n");
-		System.out.println("--------------------------------------------\n");
-		System.out.println("1.-crear vector de una longitud n   		\n");
-		System.out.println("2.-ordenar por bubble sort  				\n");
-		System.out.println("3.-ordenar por selection sort 				\n");
-		System.out.println("4.-ordenar por inserction sort 				\n");
-		System.out.println("5.-ordenar por inserction Sort 				\n");
-		System.out.println("6.-salir del programa						\n");
-		System.out.println("7.-imprimir el arreglo de enteros 		\n");
-		System.out.println("--------------------------------------------\n");
+	//metodo para generar el vector
+	public static void generaVector(){
 
-	} //fin de imprimeOpciones
+		//preparativos necesarios
+		scanner.nextLine();
+		vector = null;
+		fixedVector = null;
 
-
-	/*
-	* Método: crearVector
-	*----------------------------------------------------------
-	* éste método crea el vector principal de trabajo
-	*/
-	private static void crearVector(){
-		int longitud;
-
-		System.out.println("\nIntroduzca la longitud del vector: ");
+		//solicitud de la longitud del programa
+		System.out.println("introduzca la longitud del vector");
 		longitud = scanner.nextInt();
 
 		vector = new int[longitud];
 
+		//ciclo de asignación para generar las pruebas
 		for(int i=0; i<longitud; i++)
-			vector[i] = generadorRand();
+			vector[i] = longitud-i;
 
-		tamano = longitud;
+		fixedVector = vector;
 
-	}//fin crearVector
+		/*for(int i=0; i<longitud; i++)
+			System.out.println("\n"+vector[i]);*/
 
+	}
 
-	/*
-	* Método: swap
-	*-----------------------------------------------------------------------------
-	* esta funcion tiene el objetivo de intercambiar valores entre sí
-	*/
+	//metodo para imprimir el arreglo
+	public static void impresor(){
+		for(int i=0; i<longitud; i++)
+			System.out.println("\n"+fixedVector[i]);
+	}
+
+	//sección de métodos secundarios de la Clase
+	//----------------------------------------------------------------------------
+
+	//metodo para hacer el swap
 	private static void swap(int indiceActual, int indiceSiguiente){
 		int auxiliar;
 
-		auxiliar = vector[indiceActual];
-		vector[indiceActual] = vector[indiceSiguiente];
-		vector[indiceSiguiente] = auxiliar;
+		auxiliar = fixedVector[indiceActual];
+		fixedVector[indiceActual] = fixedVector[indiceSiguiente];
+		fixedVector[indiceSiguiente] = auxiliar;
 
 	}		//fin swap
 
-	/*
-	* Método: generadorRand
-	*-----------------------------------------------------------------------------
-	* ésta funcion tiene el objetivo de crear valores al azar y asignarselos al
-	* vector de trabajo
-	*/
-	private static int generadorRand(){
-		int valor;
-		Random aleatorio = new Random(System.currentTimeMillis());
 
-		valor = aleatorio.nextInt(400);
+	/*recordatorio de implementar a finales del proyecto*/
+	//metodo para generar numeros aleatorios
+	private static int random(){
+		int valor = 0;
 
 		return valor;
-	} //fin generadorRand
-
-	/*
-	*	Método: imprimeArreglo
-	*-----------------------------------------------------------------------------
-	* éste método imprime el arreglo sea en el orden que esté
-	*/
-	private static void imprimeArreglo(){
-
-			if(tamano == 0){
-				System.out.println("\nNo se puede imprimir una cadena de long 0");
-				return;
-			}
-
-			for(int i=0; i<tamano; i++)
-				System.out.println("\n"+vector[i]);
-
-
 	}
+
 }
