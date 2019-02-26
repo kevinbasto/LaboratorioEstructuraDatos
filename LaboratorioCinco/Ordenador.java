@@ -123,8 +123,8 @@ public class Ordenador{
 			for(int j=0; j<longitud-i-1; j++){
 				if(fixedVector[j] > fixedVector[j+1]){
 					swap(j,j+1);
-					pasos[0]++;
 				}
+				pasos[0]++;
 			}
 		}
 
@@ -133,19 +133,36 @@ public class Ordenador{
 
 	//metodo para ordenar por selectionSort
 	public static void selectionSort(){
-
 		fixedVector = vector;
+
+
 
 	}
 
 	//metodo para ordenar por inserctionSort
 	public static void inserctionSort(){
 		fixedVector = vector;
+
+		for(int i=0; i<n; i++){
+			int key = fixedVector[i];
+			int j = i-1;
+
+			while(j>=0 && fixedVector[j] > key){
+				fixedVector[j+1] = fixedVector[j];
+				j = j-1;
+			}
+			pasos[1]++;
+		}
+
 	}
 
 	//metodo para ordenadr por quicksort
-	public static void quickSort(){
+	public static void quickSort(int low, int high){
+		fixedVector = vector;
+		int pivot = fixedVector[high];
+		int i=(low-1);
 
+		for(int )
 	}
 
 	//sección de métodos secundarios de la Clase
