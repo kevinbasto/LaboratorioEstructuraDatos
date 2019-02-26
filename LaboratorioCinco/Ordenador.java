@@ -4,6 +4,9 @@
 *	Esta es la única clase del proyecto y tiene la función de
 * de almacenar un monton de información aleatoria y ordenarla
 * por los múltiples métodos de ordenamiento.
+*autores:
+*	-Kevin Daniel Basto Anquino
+* -Francisco de Jesus Mac Cetzal
 *
 */
 
@@ -135,7 +138,16 @@ public class Ordenador{
 	public static void selectionSort(){
 		fixedVector = vector;
 
+		for(int i=0; i<longitud; i++){
+			int min_idx = i;
+			for(int j= i+1; j<longitud; j++){
+				if(fixedVector[j] < fixedVector[min_idx]){
+					min_idx = j;
 
+					swap(min_idx, i);
+				}
+			}
+		}
 
 	}
 
@@ -143,7 +155,7 @@ public class Ordenador{
 	public static void inserctionSort(){
 		fixedVector = vector;
 
-		for(int i=0; i<n; i++){
+		for(int i=0; i<longitud; i++){
 			int key = fixedVector[i];
 			int j = i-1;
 
@@ -156,13 +168,23 @@ public class Ordenador{
 
 	}
 
+	/*recordatorio: se debe implementar una funcion que determine
+		el valor más pequeño y el valor más grande de quickSort*/
 	//metodo para ordenadr por quicksort
 	public static void quickSort(int low, int high){
 		fixedVector = vector;
 		int pivot = fixedVector[high];
 		int i=(low-1);
 
-		for(int )
+		for(int j=low; j<high; j++){
+			if(fixedVector[j] <= pivot){
+				i++;
+
+				swap(i,j);
+			}
+
+			swap(i+1,high);
+		}
 	}
 
 	//sección de métodos secundarios de la Clase
