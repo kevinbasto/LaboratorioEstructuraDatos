@@ -133,7 +133,18 @@ public class Ordenador{
 
 	//metodo para ordenar por selectionSort
 	public static void selectionSort(){
+
 		fixedVector = vector;
+
+	}
+
+	//metodo para ordenar por inserctionSort
+	public static void inserctionSort(){
+		fixedVector = vector;
+	}
+
+	//metodo para ordenadr por quicksort
+	public static void quickSort(){
 
 	}
 
