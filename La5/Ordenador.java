@@ -147,6 +147,7 @@ public class Ordenador{
 					swap(min_idx, i);
 				}
 			}
+			paso[2]++;
 		}
 
 	}
@@ -184,6 +185,7 @@ public class Ordenador{
 			}
 
 			swap(i+1,high);
+			pasos[3]++;
 		}
 	}
 
