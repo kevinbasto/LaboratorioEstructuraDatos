@@ -1,3 +1,4 @@
+
 22/02/2019, 8:00
 autor: Kevin Basto
 Changelog del proyecto creado
@@ -26,3 +27,4 @@ de igual manera la tabla comparativa de cada uno de los experimentos
 autor: Francisco Mac
 Se implemento el quick sort y se termino de implementar los contadores de pasos
 queda pendiente por implementar la impresion de la tabla y los contadores de tiempo 
+
