@@ -310,8 +310,8 @@ public class Ordenador{
 			for(int j=0; j<longitud-i-1; j++){
 				if(fixedVector[j] > fixedVector[j+1]){
 					swap(j,j+1);
-					pasos[0]++;
 				}
+				pasos[0]++;
 			}
 		}
 
@@ -320,20 +320,61 @@ public class Ordenador{
 
 	//metodo para ordenar por selectionSort
 	public static void selectionSort(){
-
 		fixedVector = vector;
 
+<<<<<<< HEAD:LaboratorioCinco/Ordenador.java
 >>>>>>> master
+=======
+		for(int i=0; i<longitud; i++){
+			int min_idx = i;
+			for(int j= i+1; j<longitud; j++){
+				if(fixedVector[j] < fixedVector[min_idx]){
+					min_idx = j;
+
+					swap(min_idx, i);
+				}
+			}
+			paso[2]++;
+		}
+
+>>>>>>> ecab2bc38208ef9e474735c890628f555148f3a2:La5/Ordenador.java
 	}
 
 	//metodo para ordenar por inserctionSort
 	public static void inserctionSort(){
 		fixedVector = vector;
+
+		for(int i=0; i<longitud; i++){
+			int key = fixedVector[i];
+			int j = i-1;
+
+			while(j>=0 && fixedVector[j] > key){
+				fixedVector[j+1] = fixedVector[j];
+				j = j-1;
+			}
+			pasos[1]++;
+		}
+
 	}
 
+	/*recordatorio: se debe implementar una funcion que determine
+		el valor más pequeño y el valor más grande de quickSort*/
 	//metodo para ordenadr por quicksort
-	public static void quickSort(){
+	public static void quickSort(int low, int high){
+		fixedVector = vector;
+		int pivot = fixedVector[high];
+		int i=(low-1);
 
+		for(int j=low; j<high; j++){
+			if(fixedVector[j] <= pivot){
+				i++;
+
+				swap(i,j);
+			}
+
+			swap(i+1,high);
+			pasos[3]++;
+		}
 	}
 
 	//sección de métodos secundarios de la Clase
