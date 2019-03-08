@@ -81,7 +81,7 @@ public class Procesador{
 
     }
 
-    //método del heapsort
+    //método del heapsort (código fusilado de geeks for geeks)
     public void heapSort() 
     { 
         fixedvector = vector;
