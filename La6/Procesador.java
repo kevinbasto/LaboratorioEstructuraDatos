@@ -41,6 +41,9 @@ public class Procesador{
       System.out.println("------------------\n");
       System.out.println("1.-crear vector   \n");
       System.out.println("2.-imprimir vector \n");
+      System.out.println("3.-heapSort        \n");
+      System.out.println("4.-mergesort       \n");
+      System.out.println("5.-imprimir vector \n");
       System.out.println("-------------------\n");
       System.out.println("selecciona una opcion: ");
       selector = scanner.nextInt();
