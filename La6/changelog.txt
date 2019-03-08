@@ -1,3 +1,7 @@
 07/03/2019 9:57
 autor: Kevin Basto
 macdonald no actualizaste el changelog de los cambios que hiciste
+
+08/03/2019 8:53
+autor: Francisco Mac
+Update new class MergeSort (incomplete)
