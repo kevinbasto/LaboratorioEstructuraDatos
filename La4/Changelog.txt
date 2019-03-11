@@ -1,0 +1,13 @@
+19/02/2019, 12:23, autor: Kevin Basto
+se guardó el pseudocódigo del método de ordenamiento seleccionado para el sistema que se desarrollará
+
+19/02/2019, 12:39, autor: Kevin Basto
+se creó el documento de práctica para almacenar las instrucciones sobre el programa, se creo la clase
+equipo y se le añadieron los atributos y los métodos necesarios para poder operar con el objeto
+equipo
+
+19/02/2019, 1:39, autor: Kevin Basto
+El programa oficialmente cumple con todos los requisitos establecidos en el documento de práctica
+añadiendose tres funciones al sistema donde el primero agrega elementos al arraylist, el segundo
+ordnea los elementos por medio del algoritmo selection sort, y el tercero imprime la lista
+de los equipos de forma ordenada en base al puntaje obtenido

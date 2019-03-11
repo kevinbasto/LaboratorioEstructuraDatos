@@ -1,0 +1,1 @@
+Hola! este texto fue escrito desde la versión de git de ubuntu, posdata: maldito macdonald, avísame cuando una tarea es individual
