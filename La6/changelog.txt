@@ -11,3 +11,7 @@ re-estructurazión del código
 autor: Francisco Mac
 Update new class MergeSort (incomplete)
 
+11/03/2019
+autor: Kevin Basto
+update FINAL
+el programa está finalmente listo para el despliegue en la clase
