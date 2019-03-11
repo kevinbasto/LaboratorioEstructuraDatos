@@ -112,6 +112,7 @@ public class Procesador{
 
     }
 
+
     //Random number generator for the vector
     private static void random(){
         
@@ -145,6 +146,14 @@ public class Procesador{
         
 
         int n = fixedVector.length;
+
+
+    //método del heapsort (código fusilado de geeks for geeks)
+    public void heapSort() 
+    { 
+        fixedvector = vector;
+        int n = fixedvector.length; 
+  
 
         // Build heap (rearrange array) 
         for (int i = n / 2 - 1; i >= 0; i--) 

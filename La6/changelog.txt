@@ -2,6 +2,7 @@
 autor: Kevin Basto
 macdonald no actualizaste el changelog de los cambios que hiciste
 
+
 09/03/2019 11:30
 autor: Kevin Basto
-re-estructurazión del código 
+
