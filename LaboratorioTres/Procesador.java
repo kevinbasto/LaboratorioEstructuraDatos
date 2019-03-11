@@ -89,7 +89,16 @@ public class Procesador{
 	*este método crea la pila para crear la cadena postfija
 	*/
 	private static void crearPostfijo(){
-		
+		Nodo auxiliar = tope;
+		Nodo auxiliarPostfijo = topePost;
+		while(auxiliar != null){
+			switch(tope.getCaracter){
+				case '(':
+					auxiliarPostfijo.setSiguiente(new Nodo('('));
+			}
+
+			auxiliar = auxiliar.getSiguiente();
+		}
 	}
 
 	/*
@@ -97,7 +106,7 @@ public class Procesador{
 	*----------------------------------------------------------
 	*/
 	private static boolean verificaPila(){
-		if(tope.isEmpty()){
+		if(tope != null){
 			return true;
 		}
 
