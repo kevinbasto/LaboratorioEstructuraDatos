@@ -39,7 +39,8 @@ public class Procesador{
                     heapSort();
                     break;
                 case 4:
-                    mergeSort();
+
+                    mergeSort(0,fixedVector.length-1);
                     break;
                 case 5:
                     salir = true;
@@ -146,15 +147,7 @@ public class Procesador{
         
 
         int n = fixedVector.length;
-
-
-    //método del heapsort (código fusilado de geeks for geeks)
-    public void heapSort() 
-    { 
-        fixedvector = vector;
-        int n = fixedvector.length; 
-  
-
+   
         // Build heap (rearrange array) 
         for (int i = n / 2 - 1; i >= 0; i--) 
             heapify( n, i); 
@@ -201,13 +194,81 @@ public class Procesador{
     }
 
     //method for mergesort
-    private static void mergeSort(){
+    private static void mergeSort(int l, int r){
         mergeSteps++;
         fixedVector = vector;
+
+        if (l < r) 
+        { 
+            // Find the middle point 
+            int m = (l+r)/2; 
+  
+            // Sort first and second halves 
+            mergeSort( l, m); 
+            mergeSort( m+1, r); 
+  
+            // Merge the sorted halves 
+            merge(l, m, r); 
+        } 
+
+        System.out.println("hecho en: "+mergeSteps+" pasos!");
     }
 
-    private static void merge(){
+    private static void merge(int l, int m, int r){
         mergeSteps++;
+
+        // Find sizes of two subarrays to be merged 
+        int n1 = m - l + 1; 
+        int n2 = r - m; 
+  
+        /* Create temp arrays */
+        int L[] = new int [n1]; 
+        int R[] = new int [n2]; 
+  
+        /*Copy data to temp arrays*/
+        for (int i=0; i<n1; ++i) 
+            L[i] = fixedVector[l + i]; 
+        for (int j=0; j<n2; ++j) 
+            R[j] = fixedVector[m + 1+ j]; 
+  
+  
+        /* Merge the temp arrays */
+  
+        // Initial indexes of first and second subarrays 
+        int i = 0, j = 0; 
+  
+        // Initial index of merged subarry array 
+        int k = l; 
+        while (i < n1 && j < n2) 
+        { 
+            if (L[i] <= R[j]) 
+            { 
+                fixedVector[k] = L[i]; 
+                i++; 
+            } 
+            else
+            { 
+                fixedVector[k] = R[j]; 
+                j++; 
+            } 
+            k++; 
+        } 
+  
+        /* Copy remaining elements of L[] if any */
+        while (i < n1) 
+        { 
+            fixedVector[k] = L[i]; 
+            i++; 
+            k++; 
+        } 
+  
+        /* Copy remaining elements of R[] if any */
+        while (j < n2) 
+        { 
+            fixedVector[k] = R[j]; 
+            j++; 
+            k++; 
+        }
     }
 
 
