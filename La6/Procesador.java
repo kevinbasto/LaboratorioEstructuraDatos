@@ -1,243 +1,225 @@
-/*Clase: Procesador
-* la clase del Procesador realiza todas las operaciones de ordenamiento
-*/
-
 import java.util.Scanner;
+import java.util.Random;
 
 public class Procesador{
-    //attributos (de la clase
-    private static int[] vector;
-    private static int[] fixedvector;
+    
+    //atributos del programa
+    private static int[]   vector;
+    private static int[]   fixedVector;
+    private static int heapSteps = 0;
+    private static int mergeSteps = 0;
     private static Scanner scanner = new Scanner(System.in);
 
-    //funcion main del sistema
+    // main program
     public static void main(String[] args){
-
+        menu();
     }
 
-    //funciones relacionadas  con el menu
-    //-------------------------------------------------------------------------
+    //method related to menu
+    //---------------------------------------------------------------------------------------------
 
-    //método del menu
+    //menu
     private static void menu(){
-      int selector;
-      boolean salir = false;
+        int selector;
+        boolean salir = false;
 
-      do{
-        selctor = opciones();
-        switch(selector){
+        do{
+            selector = opciones();
 
-        }
-      }while(!salir)
+            switch(selector){
+                //case 1 creates the vector
+                case 1:
+                    createVector();
+                    break;
+                //case 2 prints the function
+                case 2:
+                    printVector();
+                    break;
+                case 3:
+                    heapSort();
+                    break;
+                case 4:
+                    mergeSort();
+                    break;
+                case 5:
+                    salir = true;
+                    break;
+            }
+        }while(!salir);
     }
 
-    //método de las opciones
     private static int opciones(){
-      int selector = 0;
+        int selector;
 
-      limpiarPantalla();
+        System.out.println("menu    \n");
+        System.out.println("------------------------------------------------------------------\n");
+        System.out.println("1.-create vector \n");
+        System.out.println("2.-print vector \n");
+        System.out.println("3.-Heapsort \n");
+        System.out.println("4.-MergeSort \n");
+        System.out.println("5.-exit \n");
+        System.out.println("------------------------------------------------------------------\n");
+        System.out.println("option: ");
+        selector = scanner.nextInt();
 
-      System.out.println("Menu auxiliar     \n");
-      System.out.println("------------------\n");
-      System.out.println("1.-crear vector   \n");
-      System.out.println("2.-imprimir vector \n");
-      System.out.println("3.-heapSort        \n");
-      System.out.println("4.-mergesort       \n");
-      System.out.println("5.-imprimir vector \n");
-      System.out.println("-------------------\n");
-      System.out.println("selecciona una opcion: ");
-      selector = scanner.nextInt();
-
-      return selector;
+        return selector;
     }
 
-    //funciones relacionadas con los algoritmos de ordenamiento
-    //--------------------------------------------------------------------------
+    //methods related to vector working
+    //---------------------------------------------------------------------------------------------
 
-    //método que crea el vector
-    private static void crearVector(){
-        limpiarPantalla();
+    //method which creates the vector
+    private static void createVector(){
+        clScreen();
+        int tipo;
+        int size;
 
-        System.out.println("introduzca la longitud del arreglo: ");
-        int longitud  = scanner.nextInt();
-        vector = new int[longitud];
+        heapSteps = 0;
+        mergeSteps = 0;
 
-        System.out.println("\n\nintroduzca que método desea implementar  ");
-        System.out.println("\n(r=random, i = inverted): ");
-        char modo = scanner.next().charAt(0);
+        scanner.nextLine();
 
-        switch(modo){
-            case 'r':
-                random(longitud);
+        System.out.println("input the vector size: ");
+        size = scanner.nextInt();
+
+        //creating the vector 
+        vector = new int[size];
+        fixedVector = vector;
+
+        System.out.println("Chose a option to create a vector   \n");
+        System.out.println("(0 = random, 1 = inverse, 2 = manual)       \n");
+        System.out.println("seleccione: ");
+        tipo = scanner.nextInt();
+
+        switch(tipo){
+            case 0:
+                random();
                 break;
-            case 'i':
-                invertir(longitud);
+            case 1:
+                inverted();
+                break;
+            case 2:
+                manual();
                 break;
         }
     }
 
-    //método del mergesort
-    public static void mergeSort(){
+    //method which prints the vector
+    private static void printVector(){
+        clScreen();
+        for(int i=0; i<fixedVector.length; i++)
+            System.out.println("\n"+fixedVector[i]);
 
     }
 
-    //método del heapsort
-    public void heapSort() 
-    { 
-        fixedvector = vector;
-        int n = fixedvector.length; 
-  
+    //Random number generator for the vector
+    private static void random(){
+        
+        for(int i=0; i<fixedVector.length; i++)
+            fixedVector[i] = (int)(Math.random() * 200 + 1);
+
+        vector = fixedVector;
+    }
+
+    //Inverse number generator for the vector
+    private static void inverted(){
+
+        for(int i=0; i<fixedVector.length; i++)
+            fixedVector[i] = fixedVector.length - i;
+
+        vector = fixedVector;
+    }
+
+    //manual input for the vector
+    private static void manual(){
+        clScreen();
+        for(int i=0; i<fixedVector.length; i++){
+            System.out.println("introduzca el valor: ");
+            fixedVector[i] = scanner.nextInt();
+        }
+    }
+
+    //method heap
+    private static void heapSort(){
+        fixedVector = vector;
+        
+
+        int n = fixedVector.length;
+
         // Build heap (rearrange array) 
         for (int i = n / 2 - 1; i >= 0; i--) 
-            heapify(fixedvector, n, i); 
+            heapify( n, i); 
   
         // One by one extract an element from heap 
         for (int i=n-1; i>=0; i--) 
         { 
             // Move current root to end 
-            int temp = fixedvector[0]; 
-            fixedvector[0] = fixedvector[i]; 
-            fixedvector[i] = temp; 
+            swap(0,i); 
   
             // call max heapify on the reduced heap 
-            heapify(arr, i, 0); 
-        } 
-    } 
+            heapify( i, 0); 
+        }
 
-    // To heapify a subtree rooted with node i which is 
-    // an index in arr[]. n is size of heap 
-    void heapify(int arr[], int n, int i) 
-    { 
+        System.out.println("\n este metodo para odenar le tomo: "+heapSteps+" pasos");
+    }
+
+    //method heapify
+    private static void heapify(int n, int i){
+        heapSteps++;
+
         int largest = i; // Initialize largest as root 
         int l = 2*i + 1; // left = 2*i + 1 
         int r = 2*i + 2; // right = 2*i + 2 
   
         // If left child is larger than root 
-        if (l < n && arr[l] > arr[largest]) 
+        if (l < n && fixedVector[l] > fixedVector[largest]) 
             largest = l; 
   
         // If right child is larger than largest so far 
-        if (r < n && arr[r] > arr[largest]) 
+        if (r < n && fixedVector[r] > fixedVector[largest]) 
             largest = r; 
   
         // If largest is not root 
         if (largest != i) 
         { 
-            int swap = arr[i]; 
-            arr[i] = arr[largest]; 
-            arr[largest] = swap; 
+            int swap = fixedVector[i]; 
+            fixedVector[i] = fixedVector[largest]; 
+            fixedVector[largest] = swap; 
   
             // Recursively heapify the affected sub-tree 
-            heapify(arr, n, largest); 
+            heapify( n, largest); 
         } 
-    } 
+    }
 
-    // Merges two subarrays of arr[]. 
-    // First subarray is arr[l..m] 
-    // Second subarray is arr[m+1..r] 
-    void merge(, int l, int m, int r) 
-    { 
+    //method for mergesort
+    private static void mergeSort(){
+        mergeSteps++;
         fixedVector = vector;
-        // Find sizes of two subarrays to be merged 
-        int n1 = m - l + 1; 
-        int n2 = r - m; 
-  
-        /* Create temp arrays */
-        int L[] = new int [n1]; 
-        int R[] = new int [n2]; 
-  
-        /*Copy data to temp arrays*/
-        for (int i=0; i<n1; ++i) 
-            L[i] = fixedvector[l + i]; 
-        for (int j=0; j<n2; ++j) 
-            R[j] = fixedvector[m + 1+ j]; 
-  
-  
-        /* Merge the temp arrays */
-  
-        // Initial indexes of first and second subarrays 
-        int i = 0, j = 0; 
-  
-        // Initial index of merged subarry array 
-        int k = l; 
-        while (i < n1 && j < n2) 
-        { 
-            if (L[i] <= R[j]) 
-            { 
-                fixedvector[k] = L[i]; 
-                i++; 
-            } 
-            else
-            { 
-                fixedvector[k] = R[j]; 
-                j++; 
-            } 
-            k++; 
-        } 
-  
-        /* Copy remaining elements of L[] if any */
-        while (i < n1) 
-        { 
-            fixedvector[k] = L[i]; 
-            i++; 
-            k++; 
-        } 
-  
-        /* Copy remaining elements of R[] if any */
-        while (j < n2) 
-        { 
-            fixedvector[k] = R[j]; 
-            j++; 
-            k++; 
-        } 
-    } 
-  
-    // Main function that sorts arr[l..r] using 
-    // merge() 
-    void mergeSort(int arr[], int l, int r) 
-    { 
-        if (l < r) 
-        { 
-            // Find the middle point 
-            int m = (l+r)/2; 
-  
-            // Sort first and second halves 
-            mergeSort(arr, l, m); 
-            mergeSort(arr , m+1, r); 
-  
-            // Merge the sorted halves 
-            merge(arr, l, m, r); 
-        } 
-    } 
-
-    //métodos relacionados con aspectos secundarios como swap y random
-    //--------------------------------------------------------------------------
-
-    //metodo para hacer el swap
-	  private static void swap(int indiceActual, int indiceSiguiente){
-		   int auxiliar;
-
-		   auxiliar = fixedVector[indiceActual];
-		   fixedVector[indiceActual] = fixedVector[indiceSiguiente];
-       fixedVector[indiceSiguiente] = auxiliar;
-
-	}		//fin swap
-
-    //metodo para crear el vector con orden inverso
-    private static void invertir(int longitud){
-        for(int i=0; i<longitud; i++)
-            vector[i] = longitud-i;
-
     }
 
-    private static void random(int longitud){
-
+    private static void merge(){
+        mergeSteps++;
     }
 
-    private static void limpiarPantalla(){
-        for(int i = 0; i<1000; i++){
-            System.out.println("\n");
+
+    //methods related to secondary functions
+    //---------------------------------------------------------------------------------------------
+    
+    //clScreen clear screen
+    public static void clScreen(){
+        
+        try{
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        }catch(Exception e){
+            System.out.println(e);
         }
     }
 
+    public static void swap(int posA, int posB){
+        int temp = fixedVector[posA];
+        fixedVector[posA] = fixedVector[posB];
+        fixedVector[posB] = temp;
+    }
+
+    
 }
