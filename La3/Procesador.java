@@ -83,13 +83,6 @@ public class Procesador{
 	}
 
 	/*
-<<<<<<< master
-	* Método crear postfijo
-	*----------------------------------------------------------
-	*este método crea la pila para crear la cadena postfija
-	*/
-	private static void crearPostfijo(){
-		while(!tope.getSiguiente().isEmpty()){
 
 		}
 	}
@@ -99,7 +92,7 @@ public class Procesador{
 	*----------------------------------------------------------
 	*/
 	private static boolean verificaPila(){
-		if(tope.isEmpty()){
+		if(tope != null){
 			return true;
 		}
 
@@ -118,8 +111,7 @@ public class Procesador{
 
 
 	/*
-=======
->>>>>>> master
+
 	*método utilizado para crear la pila de caracteres
 	*----------------------------------------------------------
 	*este método es utilizado para la creación de una pila de
