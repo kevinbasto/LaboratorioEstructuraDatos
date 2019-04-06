@@ -39,8 +39,8 @@ public class Procesador{
                     heapSort();
                     break;
                 case 4:
-
                     mergeSort(0,fixedVector.length-1);
+                    System.out.println("hecho en: "+mergeSteps+" pasos!");
                     break;
                 case 5:
                     salir = true;
@@ -211,7 +211,7 @@ public class Procesador{
             merge(l, m, r); 
         } 
 
-        System.out.println("hecho en: "+mergeSteps+" pasos!");
+        
     }
 
     private static void merge(int l, int m, int r){
