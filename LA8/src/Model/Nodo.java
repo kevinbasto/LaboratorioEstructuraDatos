@@ -5,6 +5,9 @@
  */
 package Model;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 /**
  *
  * @author jevin
@@ -14,11 +17,21 @@ public class Nodo {
     private int posX;
     private int posY;
     private int id;
+    private int diameter;
+    private Color color;
 
-    public Nodo(int posX, int posY, int id) {
+    public Nodo(int posX, int posY, int id, int diameter, java.awt.Color color) {
         this.posX = posX;
         this.posY = posY;
         this.id = id;
+        this.diameter = diameter;
+        this.color = color;
+    }
+    
+    
+    public void draw(Graphics g){
+        g.setColor(color);
+        g.fillOval(posX, posY, diameter, diameter);
     }
 
     public int getPosX() {
@@ -44,4 +57,21 @@ public class Nodo {
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getDiameter() {
+        return diameter;
+    }
+
+    public void setDiameter(int diameter) {
+        this.diameter = diameter;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
 }
